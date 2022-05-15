@@ -5,6 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 import User from '@modules/users/infra/typeorm/entities/Users';
 
@@ -14,6 +15,7 @@ class Address {
   id: string;
 
   @Column()
+  @Exclude()
   user_id: string;
 
   @ManyToOne(() => User)

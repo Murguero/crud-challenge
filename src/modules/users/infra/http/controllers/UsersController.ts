@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { instanceToInstance } from 'class-transformer';
 
 import CreateUserService from '@modules/users/services/CreateUserService';
 import ShowUserService from '@modules/users/services/ShowUserService';
@@ -18,7 +19,7 @@ export default class UsersController {
       password,
     });
 
-    return response.json(user);
+    return response.json(instanceToInstance(user));
   }
 
   public async show(request: Request, response: Response): Promise<Response> {
@@ -30,7 +31,7 @@ export default class UsersController {
       user_id,
     });
 
-    return response.json(user);
+    return response.json(instanceToInstance(user));
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
@@ -46,7 +47,7 @@ export default class UsersController {
       email,
     });
 
-    return response.json(user);
+    return response.json(instanceToInstance(user));
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {

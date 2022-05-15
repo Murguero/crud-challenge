@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { instanceToInstance } from 'class-transformer';
 
 import CreateAddressService from '@modules/address/services/CreateAddressService';
 import ShowAddressService from '@modules/address/services/ShowAddressService';
@@ -27,7 +28,7 @@ export default class UsersController {
       country,
     });
 
-    return response.json(address);
+    return response.json(instanceToInstance(address));
   }
 
   public async show(request: Request, response: Response): Promise<Response> {
@@ -42,7 +43,7 @@ export default class UsersController {
       address_id,
     });
 
-    return response.json(address);
+    return response.json(instanceToInstance(address));
   }
 
   public async update(request: Request, response: Response): Promise<Response> {
@@ -67,7 +68,7 @@ export default class UsersController {
       country,
     });
 
-    return response.json(address);
+    return response.json(instanceToInstance(address));
   }
 
   public async delete(request: Request, response: Response): Promise<Response> {
@@ -93,6 +94,6 @@ export default class UsersController {
       country: String(country),
     });
 
-    return response.json(address);
+    return response.json(instanceToInstance(address));
   }
 }
