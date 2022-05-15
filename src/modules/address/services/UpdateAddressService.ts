@@ -37,7 +37,7 @@ class UpdateAddressService {
     const address = await this.adressRepository.findById(address_id);
     if (!address || address.user_id !== user_id) {
       throw new CustomError(
-        'Address does not exist or this address id is of another user',
+        'Address does not exist or this user id is of another user',
       );
     }
 

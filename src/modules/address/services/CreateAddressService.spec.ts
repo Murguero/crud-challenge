@@ -13,7 +13,7 @@ describe('CreateAddress', () => {
     createAddress = new CreateAddressService(fakeAddressRepository);
   });
 
-  it('should be able to create a new user', async () => {
+  it('should be able to create a new address', async () => {
     const address = await createAddress.execute({
       user_id: '1',
       cep: '89223030',

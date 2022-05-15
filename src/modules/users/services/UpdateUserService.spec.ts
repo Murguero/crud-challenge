@@ -15,7 +15,7 @@ describe('UpdateUser', () => {
     updateUser = new UpdateUserService(fakeUserRepository);
   });
 
-  it('should be able to update the profile', async () => {
+  it('should be able to update the user', async () => {
     const user = await fakeUserRepository.create({
       name: 'John Doe',
       email: 'johndoe@example.com',
@@ -32,7 +32,7 @@ describe('UpdateUser', () => {
     expect(updatedUser.email).toBe('johntre@example.com');
   });
 
-  it('should not be able to update the profile from non-existing user', async () => {
+  it('should not be able to update the user from non-existing user', async () => {
     expect(
       updateUser.execute({
         user_id: 'non-existing-user-id',

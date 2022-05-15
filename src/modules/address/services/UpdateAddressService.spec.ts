@@ -15,7 +15,7 @@ describe('UpdateAddress', () => {
     updateAddress = new UpdateAddressService(fakeAddressRepository);
   });
 
-  it('should be able to update the profile', async () => {
+  it('should be able to update the address', async () => {
     const address = await fakeAddressRepository.create({
       user_id: '1',
       cep: '89223030',
@@ -44,7 +44,7 @@ describe('UpdateAddress', () => {
     expect(updatedAddress.city).toBe('New York');
   });
 
-  it('should not be able to update the profile from non-existing user', async () => {
+  it('should not be able to update the address from user_id address', async () => {
     const address = await fakeAddressRepository.create({
       user_id: '1',
       cep: '89223030',
